@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<variable
+			name="vm"
+			type="ude.student.fadu.viewmodel.SelectUserViewModel" />
+	</data>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:paddingBottom="@dimen/nav_bar_height"
+		tools:context=".ui.fragment.MenuFragment">
+
+		<TextView
+			android:id="@+id/label_select_user"
+			style="@style/Headline"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/space_xxl"
+			android:text="@string/label_select_user"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<androidx.recyclerview.widget.RecyclerView
+			android:id="@+id/users_rv"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_margin="@dimen/space_l"
+			android:clipToPadding="false"
+			android:paddingHorizontal="@dimen/space_xs"
+			app:itemBinding='@{"user"}'
+			app:itemLayout="@{@layout/item_user}"
+			app:items="@{vm.users}"
+			app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+			app:layout_constraintBottom_toTopOf="@+id/btn_start"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/label_select_user"
+			app:viewModel="@{vm}"
+			app:viewModelBinding='@{"vm"}'
+			tools:listitem="@layout/item_user" />
+
+		<Button
+			android:id="@+id/btn_start"
+			style="@style/Button"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="@dimen/space_m"
+			android:background="@drawable/button_background"
+			android:onClick="@{() -> vm.onNewUserClicked()}"
+			android:paddingHorizontal="@dimen/space_xl"
+			android:paddingVertical="@dimen/space_l"
+			android:text="@string/button_new_user"
+			android:textSize="@dimen/text_size_l"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

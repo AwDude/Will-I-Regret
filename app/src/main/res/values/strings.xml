@@ -1,0 +1,44 @@
+<resources>
+
+
+	<!-- UI -->
+	<string name="label_app">Will I Regret?</string>
+	<string name="description_app">Let an artifcial intelligence find out, if you will regret posting a text about an specific topic on social media!</string>
+	<string name="description_creator">This app was created by Fabian Dudenhöffer for his master thesis at the university of Duisburg-Essen</string>
+	<string name="button_start">Start</string>
+
+	<string name="label_gender">What\'s my gender?</string>
+	<string name="label_male">MALE</string>
+	<string name="label_female">FEMALE</string>
+	<string name="label_divers">DIVERS</string>
+
+	<string name="label_age">How old am I?</string>
+	<string name="label_age_1">&lt; 26 years</string>
+	<string name="label_age_2">26 &#8211; 35 years</string>
+	<string name="label_age_3">36 &#8211; 45 years</string>
+	<string name="label_age_4">46 &#8211; 55 years</string>
+	<string name="label_age_5">&gt; 55 years</string>
+
+	<string name="label_education">What\'s my education?</string>
+	<string name="label_education_1">Graduate degree\n(MSc, PhD)</string>
+	<string name="label_education_2">Undergraduate degree\n(BSc, BA)</string>
+	<string name="label_education_3">Some college</string>
+	<string name="label_education_4">High school or less</string>
+	<string name="label_education_5">Primary school or less</string>
+
+	<string name="label_occupation">What do I do?</string>
+	<string name="label_occupation_1">Employed full time</string>
+	<string name="label_occupation_2">Employed part time</string>
+	<string name="label_occupation_3">Unemployed and\n not searching for work</string>
+	<string name="label_occupation_4">Unemployed and\nsearching for work</string>
+	<string name="label_occupation_5">Disabled or retired</string>
+	<string name="label_occupation_6">Student</string>
+
+	<string name="label_us">Do I live in the US?</string>
+
+	<string name="label_select_user">Do I have a profile?</string>
+	<string name="button_new_user">New User</string>
+
+	<!-- ERRORS -->
+
+</resources>

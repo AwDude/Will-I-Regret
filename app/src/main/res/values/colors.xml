@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="colorPrimary">#2B6693</color>
+	<color name="colorPrimaryTransparent">#3D2E74AA</color>
+	<color name="colorBackground">#1E1E1E</color>
+	<color name="colorAccent">#0FFFFF</color>
+	<color name="colorIcon">@color/colorBackground</color>
+	<color name="colorText">#DAD7D0</color>
+	<color name="colorTextDark">@color/colorBackground</color>
+	<color name="colorHint">#A8A49B</color>
+
+	<color name="colorYes">#19E30B</color>
+	<color name="colorNo">#D80D0D</color>
+
+	<color name="colorMale">#CAC00A</color>
+	<color name="colorFemale">#007AFD</color>
+	<color name="colorTrans">#05A308</color>
+</resources>

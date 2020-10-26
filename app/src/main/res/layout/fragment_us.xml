@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<variable
+			name="vm"
+			type="ude.student.fadu.viewmodel.UsViewModel" />
+	</data>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:paddingHorizontal="@dimen/space_m"
+		android:paddingBottom="@dimen/nav_bar_height"
+		tools:context=".ui.fragment.MenuFragment">
+
+		<TextView
+			android:id="@+id/label_us"
+			style="@style/Headline"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/space_xxl"
+			android:text="@string/label_us"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<ImageButton
+			android:id="@+id/yes_btn"
+			android:layout_width="@dimen/space_xxxl"
+			android:layout_height="@dimen/space_xxxl"
+			android:background="@drawable/accept_button_background"
+			android:backgroundTint="@color/colorYes"
+			android:onClick="@{() -> vm.onYesClick()}"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toStartOf="@id/no_btn"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/label_us" />
+
+		<ImageButton
+			android:id="@+id/no_btn"
+			android:layout_width="@dimen/space_xxxl"
+			android:layout_height="@dimen/space_xxxl"
+			android:background="@drawable/deny_button_background"
+			android:backgroundTint="@color/colorNo"
+			android:onClick="@{() -> vm.onNoClick()}"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toEndOf="@id/yes_btn"
+			app:layout_constraintTop_toBottomOf="@+id/label_us" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+			xmlns:app="http://schemas.android.com/apk/res-auto"
+			xmlns:tools="http://schemas.android.com/tools"
+			android:id="@+id/nav_graph"
+			app:startDestination="@id/startFragment">
+
+	<fragment
+		android:id="@+id/startFragment"
+		android:name="ude.student.fadu.view.fragment.StartFragment"
+		android:label="fragment_start"
+		tools:layout="@layout/fragment_start">
+		<action
+			android:id="@+id/action_showSelectUser"
+			app:destination="@id/selectUserFragment" />
+		<action
+			android:id="@+id/action_showGender"
+			app:destination="@id/genderFragment" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/selectUserFragment"
+		android:name="ude.student.fadu.view.fragment.SelectUserFragment"
+		android:label="fragment_select_user"
+		tools:layout="@layout/fragment_select_user">
+		<action
+			android:id="@+id/action_showGender"
+			app:destination="@id/genderFragment" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/genderFragment"
+		android:name="ude.student.fadu.view.fragment.GenderFragment"
+		android:label="fragment_gender"
+		tools:layout="@layout/fragment_gender">
+		<action
+			android:id="@+id/action_showAge"
+			app:destination="@id/ageFragment" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/ageFragment"
+		android:name="ude.student.fadu.view.fragment.AgeFragment"
+		android:label="fragment_age"
+		tools:layout="@layout/fragment_age">
+		<action
+			android:id="@+id/action_showEducation"
+			app:destination="@id/educationFragment" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/educationFragment"
+		android:name="ude.student.fadu.view.fragment.EducationFragment"
+		android:label="fragment_education"
+		tools:layout="@layout/fragment_education">
+		<action
+			android:id="@+id/action_showOccupation"
+			app:destination="@id/occupationFragment" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/occupationFragment"
+		android:name="ude.student.fadu.view.fragment.OccupationFragment"
+		android:label="fragment_occupation"
+		tools:layout="@layout/fragment_occupation">
+		<action
+			android:id="@+id/action_showUs"
+			app:destination="@id/usFragment" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/usFragment"
+		android:name="ude.student.fadu.view.fragment.UsFragment"
+		android:label="fragment_us"
+		tools:layout="@layout/fragment_us">
+	</fragment>
+
+</navigation>

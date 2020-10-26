@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<variable
+			name="vm"
+			type="ude.student.fadu.viewmodel.GenderViewModel" />
+	</data>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:paddingHorizontal="@dimen/space_m"
+		android:paddingBottom="@dimen/nav_bar_height"
+		tools:context=".ui.fragment.MenuFragment">
+
+		<TextView
+			android:id="@+id/label_gender"
+			style="@style/Headline"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/space_xxl"
+			android:text="@string/label_gender"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<ImageButton
+			android:id="@+id/btn_male"
+			style="@style/ImageButton"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_marginVertical="@dimen/space_xl"
+			android:backgroundTint="@color/colorMale"
+			android:onClick="@{() -> vm.onMaleClick()}"
+			android:paddingHorizontal="10dp"
+			android:src="@drawable/ic_male"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toStartOf="@id/btn_trans"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/label_gender"
+			tools:ignore="ContentDescription" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="@dimen/space_m"
+			android:background="@android:color/transparent"
+			android:clickable="false"
+			android:focusable="false"
+			android:text="@string/label_male"
+			android:textColor="@color/colorTextDark"
+			app:layout_constraintBottom_toBottomOf="@+id/btn_male"
+			app:layout_constraintEnd_toEndOf="@+id/btn_male"
+			app:layout_constraintStart_toStartOf="@+id/btn_male" />
+
+		<ImageButton
+			android:id="@+id/btn_trans"
+			style="@style/ImageButton"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_marginHorizontal="@dimen/space_s"
+			android:layout_marginVertical="@dimen/space_xl"
+			android:backgroundTint="@color/colorTrans"
+			android:onClick="@{() -> vm.onDiversClick()}"
+			android:paddingStart="20dp"
+			android:src="@drawable/ic_trans"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toStartOf="@id/btn_female"
+			app:layout_constraintStart_toEndOf="@id/btn_male"
+			app:layout_constraintTop_toBottomOf="@+id/label_gender"
+			tools:ignore="ContentDescription,RtlSymmetry" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="@dimen/space_m"
+			android:background="@android:color/transparent"
+			android:clickable="false"
+			android:focusable="false"
+			android:text="@string/label_divers"
+			android:textColor="@color/colorTextDark"
+			app:layout_constraintBottom_toBottomOf="@+id/btn_trans"
+			app:layout_constraintEnd_toEndOf="@+id/btn_trans"
+			app:layout_constraintStart_toStartOf="@+id/btn_trans" />
+
+		<ImageButton
+			android:id="@+id/btn_female"
+			style="@style/ImageButton"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:layout_marginVertical="@dimen/space_xl"
+			android:backgroundTint="@color/colorFemale"
+			android:onClick="@{() -> vm.onFemaleClick()}"
+			android:paddingHorizontal="10dp"
+			android:src="@drawable/ic_female"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toEndOf="@id/btn_trans"
+			app:layout_constraintTop_toBottomOf="@+id/label_gender"
+			tools:ignore="ContentDescription" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="@dimen/space_m"
+			android:background="@android:color/transparent"
+			android:clickable="false"
+			android:focusable="false"
+			android:text="@string/label_female"
+			android:textColor="@color/colorTextDark"
+			app:layout_constraintBottom_toBottomOf="@+id/btn_female"
+			app:layout_constraintEnd_toEndOf="@+id/btn_female"
+			app:layout_constraintStart_toStartOf="@+id/btn_female" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

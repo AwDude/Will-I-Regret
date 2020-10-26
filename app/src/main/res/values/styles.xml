@@ -1,0 +1,60 @@
+<resources>
+
+	<!-- THEMES -->
+
+	<style name="Theme.App" parent="Theme.MaterialComponents.NoActionBar">
+		<item name="android:navigationBarColor">@android:color/transparent</item>
+		<item name="android:windowDrawsSystemBarBackgrounds">true</item>
+		<item name="android:background">@color/colorBackground</item>
+		<item name="android:elevation">0dp</item>
+
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorAccent">@color/colorAccent</item>
+
+		<item name="android:textSize">@dimen/text_size_m</item>
+		<item name="android:textColor">@color/colorText</item>
+	</style>
+
+	<!-- STYLES -->
+
+	<style name="Item">
+		<item name="android:layout_margin">@dimen/space_xs</item>
+		<item name="cardBackgroundColor">@color/colorPrimaryTransparent</item>
+		<item name="cardCornerRadius">@dimen/corner_radius</item>
+	</style>
+
+	<style name="Headline">
+		<item name="android:textStyle">bold</item>
+		<item name="android:textSize">@dimen/text_size_xl</item>
+	</style>
+
+	<style name="Description">
+		<item name="android:gravity">center</item>
+	</style>
+
+	<style name="SideNote">
+		<item name="android:gravity">center</item>
+		<item name="android:textColor">@color/colorHint</item>
+		<item name="android:textSize">@dimen/text_size_s</item>
+	</style>
+
+	<style name="Button">
+		<item name="android:textColor">@color/colorTextDark</item>
+		<item name="android:background">@drawable/button_background</item>
+	</style>
+
+	<style name="ImageButton">
+		<item name="android:background">@drawable/button_background</item>
+		<item name="android:scaleType">fitCenter</item>
+		<item name="android:adjustViewBounds">true</item>
+	</style>
+
+	<style name="FloatingActionButton">
+		<item name="maxImageSize">@dimen/space_l</item>
+		<item name="android:elevation">@dimen/elevation</item>
+		<item name="tint">@color/colorTextDark</item>
+		<item name="android:backgroundTint">@color/colorAccent</item>
+		<item name="borderWidth">0dp</item>
+	</style>
+
+</resources>

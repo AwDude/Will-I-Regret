@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<variable
+			name="user"
+			type="ude.student.fadu.repo.model.User" />
+
+		<variable
+			name="vm"
+			type="ude.student.fadu.viewmodel.SelectUserViewModel" />
+	</data>
+
+	<androidx.cardview.widget.CardView
+		style="@style/Item"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/space_xl"
+		android:background="@null"
+		android:onClick="@{() -> vm.onUserSelected(user)}">
+
+		<TextView
+			android:id="@+id/exercise_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:background="@null"
+			android:text="@{user.name}"
+			tools:text="User" />
+
+		<ImageView
+			style="?android:borderlessButtonStyle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="end|center_vertical"
+			android:layout_marginEnd="@dimen/space_s"
+			android:adjustViewBounds="true"
+			android:onClick="@{() -> vm.onDeleteUser(user)}"
+			android:padding="@dimen/space_m"
+			android:src="@drawable/ic_delete"
+			app:tint="@color/colorText"
+			tools:ignore="ContentDescription" />
+
+	</androidx.cardview.widget.CardView>
+</layout>

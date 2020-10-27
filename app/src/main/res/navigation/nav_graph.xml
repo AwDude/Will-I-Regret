@@ -24,8 +24,15 @@
 		android:label="fragment_select_user"
 		tools:layout="@layout/fragment_select_user">
 		<action
+			android:id="@+id/action_showTopic"
+			app:destination="@id/topicFragment" />
+		<action
 			android:id="@+id/action_showGender"
-			app:destination="@id/genderFragment" />
+			app:destination="@id/genderFragment"/>
+		<action
+			android:id="@+id/action_showGenderClearBackStack"
+			app:destination="@id/genderFragment"
+			app:popUpTo="@id/startFragment" />
 	</fragment>
 
 	<fragment
@@ -73,6 +80,52 @@
 		android:name="ude.student.fadu.view.fragment.UsFragment"
 		android:label="fragment_us"
 		tools:layout="@layout/fragment_us">
+		<action
+			android:id="@+id/action_showSaveUser"
+			app:destination="@id/saveUserFragment" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/saveUserFragment"
+		android:name="ude.student.fadu.view.fragment.SaveUserFragment"
+		android:label="fragment_save_user"
+		tools:layout="@layout/fragment_save_user">
+		<action
+			android:id="@+id/action_showTopic"
+			app:destination="@id/topicFragment" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/topicFragment"
+		android:name="ude.student.fadu.view.fragment.TopicFragment"
+		android:label="fragment_topic"
+		tools:layout="@layout/fragment_topic">
+		<argument
+			android:name="userName"
+			app:argType="string"
+			android:defaultValue="" />
+		<action
+			android:id="@+id/action_showRegret"
+			app:destination="@id/regretFragment" />
+		<action
+			android:id="@+id/action_showSelectUser"
+			app:destination="@id/selectUserFragment"
+			app:popUpTo="@id/startFragment" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/regretFragment"
+		android:name="ude.student.fadu.view.fragment.RegretFragment"
+		android:label="fragment_regret"
+		tools:layout="@layout/fragment_regret">
+		<argument
+			android:name="userName"
+			app:argType="string"
+			android:defaultValue="" />
+		<argument
+			android:name="topic"
+			app:argType="ude.student.fadu.repo.model.Topic"
+			android:defaultValue="LOCATION" />
 	</fragment>
 
 </navigation>

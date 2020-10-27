@@ -8,67 +8,96 @@ import ude.student.fadu.repo.model.User.*
 import ude.student.fadu.util.asLive
 import ude.student.fadu.util.equalTo
 import ude.student.fadu.util.notEqualTo
+import ude.student.fadu.util.sort
 
 object DataBase {
 
 	private val realm: Realm get() = Realm.getDefaultInstance()
+	private val namedUsersQuery get() = realm.where<User>().notEqualTo(User::name, "")
 
-	fun setGender(gender: Gender) = realm.executeTransaction {
-		getUser().gender = gender
+	fun setGender(gender: Gender) = getUser().apply {
+		realm.executeTransaction {
+			this.gender = gender
+		}
 	}
 
-	fun setGender(genderLevel: Int) = realm.executeTransaction {
-		getUser().genderLvl = genderLevel
+	fun setGender(genderLevel: Int) = getUser().apply {
+		realm.executeTransaction {
+			this.genderLvl = genderLevel
+		}
 	}
 
-	fun setAge(age: Age) = realm.executeTransaction {
-		getUser().age = age
+	fun setAge(age: Age) = getUser().apply {
+		realm.executeTransaction {
+			this.age = age
+		}
 	}
 
-	fun setAge(ageLevel: Int) = realm.executeTransaction {
-		getUser().ageLvl = ageLevel
+	fun setAge(ageLevel: Int) = getUser().apply {
+		realm.executeTransaction {
+			this.ageLvl = ageLevel
+		}
 	}
 
-	fun setEducation(education: Education) = realm.executeTransaction {
-		getUser().education = education
+	fun setEducation(education: Education) = getUser().apply {
+		realm.executeTransaction {
+			this.education = education
+		}
 	}
 
-	fun setEducation(educationLevel: Int) = realm.executeTransaction {
-		getUser().educationLvl = educationLevel
+	fun setEducation(educationLevel: Int) = getUser().apply {
+		realm.executeTransaction {
+			this.educationLvl = educationLevel
+		}
 	}
 
-	fun setOccupation(occupation: Occupation) = realm.executeTransaction {
-		getUser().occupation = occupation
+	fun setOccupation(occupation: Occupation) = getUser().apply {
+		realm.executeTransaction {
+			this.occupation = occupation
+		}
 	}
 
-	fun setOccupation(occupationLevel: Int) = realm.executeTransaction {
-		getUser().occupationLvl = occupationLevel
+	fun setOccupation(occupationLevel: Int) = getUser().apply {
+		realm.executeTransaction {
+			this.occupationLvl = occupationLevel
+		}
 	}
 
-	fun setFromUS(fromUS: Boolean) = realm.executeTransaction {
-		getUser().fromUS = fromUS
+	fun setFromUS(fromUS: Boolean) = getUser().apply {
+		realm.executeTransaction {
+			this.fromUS = fromUS
+		}
 	}
 
-	fun setName(name: String) = realm.executeTransaction {
-		getUser().name = name
+	fun setName(name: String): Boolean {
+		if (getUser(name) != null) return false
+		val user = getUser()
+		realm.executeTransaction {
+			user.name = name
+		}
+		return true
 	}
 
-	fun getUser() = realm.where<User>().equalTo(User::name, "").findFirst() ?: newUser()
+	fun getUser(name: String) = realm.where<User>().equalTo(User::name, name).findFirst()
 
-	fun newUser(): User {
+	fun getUser() = DataBase.getUser("") ?: newUser()
+
+	private fun newUser(): User {
 		realm.beginTransaction()
 		val user = realm.createObject<User>()
 		realm.commitTransaction()
 		return user
 	}
 
-	fun hasUsers() = realm.where<User>().notEqualTo(User::name, "").findAll().isNotEmpty()
+	fun hasUsers() = namedUsersQuery.findAll().isNotEmpty()
 
-	fun getAllUsers() = realm.where<User>().findAllAsync().asLive()
+	fun getNamedUsers() = namedUsersQuery.sort(User::name).findAllAsync().asLive()
 
-	fun deleteUser(user: User) = realm.executeTransaction {
+	fun deleteUser(user: User) {
 		if (user.isValid) {
-			user.deleteFromRealm()
+			realm.executeTransaction {
+				user.deleteFromRealm()
+			}
 		}
 	}
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:app="http://schemas.android.com/apk/res-auto"
-		xmlns:tools="http://schemas.android.com/tools">
+	>
 
 	<data>
 
@@ -13,15 +13,15 @@
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:paddingBottom="@dimen/nav_bar_height"
-		tools:context=".ui.fragment.MenuFragment">
+		android:paddingHorizontal="@dimen/space_l"
+		android:paddingBottom="@dimen/space_l"
+		android:paddingTop="@dimen/space_xl">
 
 		<TextView
 			android:id="@+id/label_app"
 			style="@style/Headline"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/space_xxl"
 			android:text="@string/label_app"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
@@ -40,24 +40,24 @@
 			app:layout_constraintTop_toBottomOf="@+id/label_app" />
 
 		<Button
-			style="@style/Button"
 			android:id="@+id/btn_start"
-			android:layout_width="wrap_content"
+			style="@style/Button"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:paddingHorizontal="@dimen/space_xl"
-			android:paddingVertical="@dimen/space_l"
+			android:layout_marginHorizontal="@dimen/space_l"
+			android:onClick="@{() -> vm.onStartClick()}"
+			android:paddingVertical="@dimen/space_m"
 			android:text="@string/button_start"
 			android:textSize="@dimen/text_size_l"
-			android:onClick="@{() -> vm.onStartClick()}"
 			app:layout_constraintBottom_toTopOf="@+id/description_creator"
-			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/description_app" />
 
 		<TextView
 			android:id="@+id/description_creator"
 			style="@style/SideNote"
-			android:layout_width="0dp"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_margin="@dimen/space_m"
 			android:text="@string/description_creator"

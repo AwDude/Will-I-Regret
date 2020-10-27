@@ -17,9 +17,6 @@ import kotlin.reflect.KProperty
 
 fun <T : Any> Fragment.autoCleared() = AutoClearedValue<T>(this)
 
-fun <T> RealmQuery<T>.equalTo(field: KProperty<String?>, value: String?): RealmQuery<T> = equalTo(field.name, value)
-fun <T> RealmQuery<T>.notEqualTo(field: KProperty<String?>, value: String?): RealmQuery<T> = notEqualTo(field.name, value)
-
 fun Context.getLifecycleOwner(): LifecycleOwner {
 	var context = this
 	while (context !is LifecycleOwner) {
@@ -50,4 +47,7 @@ fun <T : RealmModel> OrderedRealmCollection<T>.removeListener(listener: OrderedR
 	}
 }
 
+fun <T> RealmQuery<T>.equalTo(field: KProperty<String?>, value: String?): RealmQuery<T> = equalTo(field.name, value)
+fun <T> RealmQuery<T>.notEqualTo(field: KProperty<String?>, value: String?): RealmQuery<T> = notEqualTo(field.name, value)
 fun <T> RealmQuery<T>.max(field: KProperty<*>) = max(field.name)
+fun <T> RealmQuery<T>.sort(field: KProperty<*>): RealmQuery<T> = sort(field.name)

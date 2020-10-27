@@ -1,7 +1,5 @@
 <resources>
 
-
-	<!-- UI -->
 	<string name="label_app">Will I Regret?</string>
 	<string name="description_app">Let an artifcial intelligence find out, if you will regret posting a text about an specific topic on social media!</string>
 	<string name="description_creator">This app was created by Fabian Dudenhöffer for his master thesis at the university of Duisburg-Essen</string>
@@ -39,6 +37,24 @@
 	<string name="label_select_user">Do I have a profile?</string>
 	<string name="button_new_user">New User</string>
 
-	<!-- ERRORS -->
+	<string name="label_topic">What topic will my post be about?</string>
+	<string name="label_topic_1">Drugs and alcohol use</string>
+	<string name="label_topic_2">Sex</string>
+	<string name="label_topic_3">Religion and politics</string>
+	<string name="label_topic_4">Strong sentiment</string>
+	<string name="label_topic_5">Location</string>
+	<string name="label_topic_6">Personal identifiers</string>
+
+	<string name="label_regret">I will…</string>
+	<string name="hint_set_name">My name is…</string>
+
+	<string name="label_save_user">Remember me?</string>
+	<string name="description_save_user">Save time by assigning your choices to a username. Next time you can skip the previous steps by selecting your user.</string>
+	<string name="btn_save_user">Save User</string>
+	<string name="description_or_skip">or</string>
+	<string name="no_error"/>
+	<string name="error_enter_name">Enter a username</string>
+	<string name="error_name_in_use">Name is already in use</string>
+	<string name="btn_skip">Skip</string>
 
 </resources>

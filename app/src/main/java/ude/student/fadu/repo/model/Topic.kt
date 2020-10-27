@@ -1,0 +1,5 @@
+package ude.student.fadu.repo.model
+
+enum class Topic {
+	DRUGS_AND_ALCOHOL, SEX, RELIGION_AND_POLITICS, STRONG_SENTIMENT, LOCATION, PERSONAL_IDENTIFIERS
+}

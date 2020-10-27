@@ -1,9 +1,8 @@
 package ude.student.fadu.repo.model
 
 import io.realm.RealmObject
-import io.realm.annotations.PrimaryKey
 
-open class User(@PrimaryKey var name: String = "",
+open class User(var name: String = "",
 				var genderLvl: Int = 0,
 				var ageLvl: Int = 0,
 				var educationLvl: Int = 0,

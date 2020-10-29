@@ -10,6 +10,9 @@ class SaveUserViewModel : AViewModel() {
 	val shrink = MutableLiveData(false)
 	val userName = MutableLiveData("")
 	val errorText = MutableLiveData(R.string.no_error)
+	override val onKeyboardShown: ((Boolean) -> Unit)? = { visible ->
+		shrink.value = visible
+	}
 
 	fun onSkipClick() {
 		navigate(SaveUserFragmentDirections.actionShowTopic())

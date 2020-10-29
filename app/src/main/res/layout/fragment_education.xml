@@ -14,8 +14,8 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:paddingHorizontal="@dimen/space_l"
-		android:paddingBottom="@dimen/space_l"
-		android:paddingTop="@dimen/space_xl">
+		android:paddingTop="@dimen/space_xl"
+		android:paddingBottom="@dimen/space_l">
 
 		<TextView
 			android:id="@+id/label_education"
@@ -29,23 +29,20 @@
 
 		<ude.student.fadu.view.component.VerticalSlider
 			android:id="@+id/slider"
+			style="@style/Slider"
 			android:layout_width="wrap_content"
 			android:layout_height="0dp"
 			android:layout_marginTop="@dimen/space_l"
 			android:layout_marginEnd="@dimen/space_m"
 			android:layout_marginBottom="@dimen/space_m"
 			android:stepSize="1"
-			app:initial="@{vm.educationLevel}"
 			android:valueFrom="0"
 			android:valueTo="4"
-			app:labelBehavior="gone"
+			app:initial="@{vm.educationLevel}"
 			app:layout_constraintBottom_toTopOf="@id/next_btn"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/label_education"
-			app:onChange="@{vm.setEducation}"
-			app:tickColor="@color/colorPrimary"
-			app:trackColor="@color/colorPrimaryTransparent"
-			app:trackHeight="@dimen/space_s" />
+			app:onChange="@{vm.setEducation}" />
 
 		<TextView
 			android:id="@+id/label_slider_0"

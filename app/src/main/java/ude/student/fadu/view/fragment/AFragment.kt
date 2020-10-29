@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat.Type
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -28,6 +30,7 @@ abstract class AFragment<VM : AViewModel, BIND : ViewDataBinding> : Fragment() {
 		viewModel.showToast = ::showToast
 		viewModel.pressBack = requireActivity()::onBackPressed
 		addOnBackPress(viewModel.onBackPress)
+		setOnKeyboardShown(viewModel.onKeyboardShown)
 
 		binding = DataBindingUtil.inflate(inflater, getLayoutID(), container, false)
 		binding.lifecycleOwner = viewLifecycleOwner
@@ -45,6 +48,14 @@ abstract class AFragment<VM : AViewModel, BIND : ViewDataBinding> : Fragment() {
 	protected fun addOnBackPress(callback: OnBackPressedCallback?) {
 		callback ?: return
 		activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
+	}
+
+	protected fun setOnKeyboardShown(onShown: ((Boolean) -> Unit)?) = onShown?.let {
+		val rootView = activity?.window?.decorView?.rootView ?: return@let
+		ViewCompat.setOnApplyWindowInsetsListener(rootView) { _, insets ->
+			onShown(insets.isVisible(Type.ime()))
+			insets.inset(insets.getInsets(Type.navigationBars()))
+		}
 	}
 
 	protected fun showToast(text: String) {

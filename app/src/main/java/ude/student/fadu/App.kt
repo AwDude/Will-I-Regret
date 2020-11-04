@@ -14,7 +14,7 @@ class App : Application() {
 	private fun initRealm() {
 		Realm.init(this)
 		// TODO later a migration may be needed
-		val config = RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build()
+		val config = RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().allowWritesOnUiThread(true).build()
 		Realm.setDefaultConfiguration(config)
 	}
 }

@@ -11,4 +11,7 @@ abstract class AViewModel : ViewModel() {
 	lateinit var pressBack: () -> Unit
 	lateinit var navigate: (NavDirections) -> Unit
 	lateinit var showToast: (String) -> Unit
+
+	open fun onResume() {}
+
 }

@@ -44,7 +44,7 @@ dependencies {
     implementation "android.arch.lifecycle:viewmodel:1.1.1"
     implementation 'androidx.appcompat:appcompat:1.3.0-alpha02'
     implementation "androidx.core:core-ktx:1.5.0-alpha04"
-    implementation "androidx.constraintlayout:constraintlayout:2.0.2"
+    implementation "androidx.constraintlayout:constraintlayout:2.0.4"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
@@ -53,6 +53,7 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:1.0.0"
 
     implementation 'com.google.android.material:material:1.3.0-alpha03'
+    //implementation 'nz.ac.waikato.cms.weka:weka-stable:3.8.0'
 
     kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
 

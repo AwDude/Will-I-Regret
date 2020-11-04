@@ -30,13 +30,22 @@ abstract class AFragment<VM : AViewModel, BIND : ViewDataBinding> : Fragment() {
 		viewModel.showToast = ::showToast
 		viewModel.pressBack = requireActivity()::onBackPressed
 		addOnBackPress(viewModel.onBackPress)
-		setOnKeyboardShown(viewModel.onKeyboardShown)
 
 		binding = DataBindingUtil.inflate(inflater, getLayoutID(), container, false)
 		binding.lifecycleOwner = viewLifecycleOwner
 		binding.setVariable(getViewModelBindingID(), viewModel)
 
 		return binding.root
+	}
+
+	override fun onResume() = super.onResume().also {
+		setOnKeyboardShown(viewModel.onKeyboardShown)
+		viewModel.onResume()
+	}
+
+	override fun onPause() = super.onPause().also {
+		val rootView = activity?.window?.decorView?.rootView ?: return
+		ViewCompat.setOnApplyWindowInsetsListener(rootView, null)
 	}
 
 	abstract fun getViewModelClass(): KClass<VM>

@@ -10,106 +10,110 @@
 
 	</data>
 
-	<androidx.constraintlayout.widget.ConstraintLayout
-		android:animateLayoutChanges="true"
+	<ScrollView
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:paddingHorizontal="@dimen/space_l"
-		android:paddingTop="@{vm.shrink ? @dimen/space_s : @dimen/space_xl}"
-		android:paddingBottom="@{vm.shrink ? @dimen/space_m : @dimen/space_xl}">
+		android:fillViewport="true">
 
-		<TextView
-			android:id="@+id/label_save_user"
-			style="@style/Headline"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/label_save_user"
-			app:gone="@{vm.shrink}"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent" />
-
-		<TextView
-			android:id="@+id/description_save_user"
-			style="@style/Description"
+		<androidx.constraintlayout.widget.ConstraintLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/space_l"
-			android:text="@string/description_save_user"
-			app:gone="@{vm.shrink}"
-			app:layout_constraintBottom_toTopOf="@+id/user_error"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/label_save_user" />
+			android:paddingHorizontal="@dimen/space_l"
+			android:paddingTop="@{vm.shrink ? @dimen/space_m : @dimen/space_xl}"
+			android:paddingBottom="@{vm.shrink ? @dimen/space_m : @dimen/space_xl}">
 
-		<TextView
-			android:id="@+id/user_error"
-			style="@style/Description"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginBottom="@dimen/space_xs"
-			android:text='@{vm.errorText}'
-			android:textColor="@color/colorNo"
-			app:layout_constraintBottom_toTopOf="@+id/name_input"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent" />
+			<TextView
+				android:id="@+id/label_save_user"
+				style="@style/Headline"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/label_save_user"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent" />
 
-		<!--suppress AndroidUnknownAttribute -->
-		<EditText
-			android:id="@+id/name_input"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginHorizontal="@dimen/space_l"
-			android:layout_marginBottom="@dimen/space_l"
-			android:autofillHints="name"
-			android:background="@color/colorPrimaryDark"
-			android:hint="@string/hint_set_name"
-			android:inputType="text"
-			android:onTextChanged="@{(text, start, before, count) -> vm.clearError()}"
-			android:padding="@dimen/space_s"
-			android:text="@={vm.userName}"
-			android:textSize="@dimen/text_size_l"
-			app:layout_constraintBottom_toTopOf="@+id/btn_save"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent" />
+			<TextView
+				android:id="@+id/description_save_user"
+				style="@style/Description"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/space_m"
+				android:layout_marginBottom="@dimen/space_l"
+				android:text="@string/description_save_user"
+				app:layout_constraintBottom_toTopOf="@+id/name_input"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@+id/label_save_user" />
 
-		<Button
-			android:id="@+id/btn_save"
-			style="@style/Button"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginHorizontal="@dimen/space_l"
-			android:layout_marginBottom="@dimen/space_m"
-			android:onClick="@{() -> vm.onSaveClick()}"
-			android:paddingVertical="@dimen/space_s"
-			android:text="@string/btn_save_user"
-			app:layout_constraintBottom_toTopOf="@id/description_or"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent" />
+			<TextView
+				android:id="@+id/user_error"
+				style="@style/Description"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="@dimen/space_xs"
+				android:text='@{vm.errorText}'
+				android:textColor="@color/colorNo"
+				app:layout_constraintBottom_toTopOf="@+id/name_input"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent" />
 
-		<TextView
-			android:id="@+id/description_or"
-			style="@style/Description"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginBottom="@dimen/space_m"
-			android:text="@string/description_or_skip"
-			app:layout_constraintBottom_toTopOf="@+id/btn_skip"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent" />
+			<!--suppress AndroidUnknownAttribute -->
+			<EditText
+				android:id="@+id/name_input"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/space_l"
+				android:layout_marginBottom="@dimen/space_l"
+				android:autofillHints="name"
+				android:background="@color/colorPrimaryDark"
+				android:hint="@string/hint_set_name"
+				android:inputType="text"
+				android:onTextChanged="@{(text, start, before, count) -> vm.clearError()}"
+				android:padding="@dimen/space_s"
+				android:text="@={vm.userName}"
+				android:textSize="@dimen/text_size_l"
+				app:layout_constraintBottom_toTopOf="@+id/btn_save"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent" />
 
-		<Button
-			android:id="@+id/btn_skip"
-			style="@style/Button"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginHorizontal="@dimen/space_l"
-			android:onClick="@{() -> vm.onSkipClick()}"
-			android:paddingVertical="@dimen/space_s"
-			android:text="@string/btn_skip"
-			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent" />
+			<Button
+				android:id="@+id/btn_save"
+				style="@style/Button"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/space_l"
+				android:layout_marginBottom="@dimen/space_m"
+				android:onClick="@{() -> vm.onSaveClick()}"
+				android:paddingVertical="@dimen/space_s"
+				android:text="@string/btn_save_user"
+				app:layout_constraintBottom_toTopOf="@id/description_or"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent" />
 
-	</androidx.constraintlayout.widget.ConstraintLayout>
+			<TextView
+				android:id="@+id/description_or"
+				style="@style/Description"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="@dimen/space_m"
+				android:text="@string/description_or_skip"
+				app:layout_constraintBottom_toTopOf="@+id/btn_skip"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent" />
+
+			<Button
+				android:id="@+id/btn_skip"
+				style="@style/Button"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/space_l"
+				android:onClick="@{() -> vm.onSkipClick()}"
+				android:paddingVertical="@dimen/space_s"
+				android:text="@string/btn_skip"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent" />
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+	</ScrollView>
 </layout>

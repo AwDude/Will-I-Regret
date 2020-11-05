@@ -16,9 +16,7 @@ class RegretFragment : AFragment<RegretViewModel, FragmentRegretBinding>() {
 	override fun getLayoutID() = R.layout.fragment_regret
 	override fun getViewModelBindingID() = BR.vm
 
-	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-		super.onViewCreated(view, savedInstanceState)
-		viewModel.userName = args.userName
-		viewModel.topic = args.topic
+	override fun onViewCreated(view: View, savedInstanceState: Bundle?) = super.onViewCreated(view, savedInstanceState).also {
+		viewModel.loadData(args.userName, args.topic, requireContext().applicationContext.assets)
 	}
 }

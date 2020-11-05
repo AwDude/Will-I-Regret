@@ -46,15 +46,18 @@
 	<string name="label_topic_6">Personal identifiers</string>
 
 	<string name="label_regret">I will…</string>
-	<string name="hint_set_name">My name is…</string>
+	<string name="label_regret_yes">…regret my post!</string>
+	<string name="label_regret_not">…not regret my post!</string>
 
+	<string name="hint_set_name">My name is…</string>
 	<string name="label_save_user">Remember me?</string>
 	<string name="description_save_user">Save time by assigning your choices to a username. Next time you can skip the previous steps by selecting your user.</string>
 	<string name="btn_save_user">Save User</string>
 	<string name="description_or_skip">or</string>
-	<string name="no_error"/>
 	<string name="error_enter_name">Enter a username</string>
 	<string name="error_name_in_use">Name is already in use</string>
 	<string name="btn_skip">Skip</string>
+
+	<string name="no_text"/>
 
 </resources>

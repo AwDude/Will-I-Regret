@@ -3,6 +3,9 @@
 package ude.student.fadu.view.adapter
 
 import android.view.View
+import android.view.animation.AnimationUtils
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
@@ -44,4 +47,14 @@ fun View.bindOnFocusChange(isGone: Boolean) = if (isGone) {
 	visibility = View.GONE
 } else {
 	visibility = View.VISIBLE
+}
+
+@BindingAdapter("animate")
+fun View.bindAnimate(animRes: Int?) = animRes?.let {
+	startAnimation(AnimationUtils.loadAnimation(context, animRes))
+}
+
+@BindingAdapter("textColor")
+fun TextView.bindTextColor(colorRes: Int?) = colorRes?.let {
+	setTextColor(ContextCompat.getColor(context, colorRes))
 }

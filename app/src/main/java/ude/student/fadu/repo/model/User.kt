@@ -35,8 +35,8 @@ open class User(var name: String = "",
 
 	override fun toString() = if (isValid) name else "INVALID"
 
-	enum class Gender {
-		MALE, DIVERS, FEMALE
+	enum class Gender(val abbreviation: String) {
+		MALE("m"), DIVERS("t"), FEMALE("w")
 	}
 
 	enum class Age {

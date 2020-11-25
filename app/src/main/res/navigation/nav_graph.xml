@@ -12,10 +12,18 @@
 		tools:layout="@layout/fragment_start">
 		<action
 			android:id="@+id/action_showSelectUser"
-			app:destination="@id/selectUserFragment" />
+			app:destination="@id/selectUserFragment"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right" />
 		<action
 			android:id="@+id/action_showGender"
-			app:destination="@id/genderFragment" />
+			app:destination="@id/genderFragment"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right"/>
 	</fragment>
 
 	<fragment
@@ -25,14 +33,26 @@
 		tools:layout="@layout/fragment_select_user">
 		<action
 			android:id="@+id/action_showTopic"
-			app:destination="@id/topicFragment" />
+			app:destination="@id/topicFragment"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right" />
 		<action
 			android:id="@+id/action_showGender"
-			app:destination="@id/genderFragment"/>
+			app:destination="@id/genderFragment"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right" />
 		<action
 			android:id="@+id/action_showGenderClearBackStack"
 			app:destination="@id/genderFragment"
-			app:popUpTo="@id/startFragment" />
+			app:popUpTo="@id/startFragment"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right" />
 	</fragment>
 
 	<fragment
@@ -42,7 +62,11 @@
 		tools:layout="@layout/fragment_gender">
 		<action
 			android:id="@+id/action_showAge"
-			app:destination="@id/ageFragment" />
+			app:destination="@id/ageFragment"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right" />
 	</fragment>
 
 	<fragment
@@ -52,7 +76,11 @@
 		tools:layout="@layout/fragment_age">
 		<action
 			android:id="@+id/action_showEducation"
-			app:destination="@id/educationFragment" />
+			app:destination="@id/educationFragment"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right" />
 	</fragment>
 
 	<fragment
@@ -62,7 +90,11 @@
 		tools:layout="@layout/fragment_education">
 		<action
 			android:id="@+id/action_showOccupation"
-			app:destination="@id/occupationFragment" />
+			app:destination="@id/occupationFragment"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right" />
 	</fragment>
 
 	<fragment
@@ -72,7 +104,11 @@
 		tools:layout="@layout/fragment_occupation">
 		<action
 			android:id="@+id/action_showUs"
-			app:destination="@id/usFragment" />
+			app:destination="@id/usFragment"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right" />
 	</fragment>
 
 	<fragment
@@ -82,7 +118,11 @@
 		tools:layout="@layout/fragment_us">
 		<action
 			android:id="@+id/action_showSaveUser"
-			app:destination="@id/saveUserFragment" />
+			app:destination="@id/saveUserFragment"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right" />
 	</fragment>
 
 	<fragment
@@ -92,7 +132,11 @@
 		tools:layout="@layout/fragment_save_user">
 		<action
 			android:id="@+id/action_showTopic"
-			app:destination="@id/topicFragment" />
+			app:destination="@id/topicFragment"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right" />
 	</fragment>
 
 	<fragment
@@ -106,11 +150,19 @@
 			android:defaultValue="" />
 		<action
 			android:id="@+id/action_showRegret"
-			app:destination="@id/regretFragment" />
+			app:destination="@id/regretFragment"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right" />
 		<action
 			android:id="@+id/action_showSelectUser"
 			app:destination="@id/selectUserFragment"
-			app:popUpTo="@id/startFragment" />
+			app:popUpTo="@id/startFragment"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right" />
 	</fragment>
 
 	<fragment

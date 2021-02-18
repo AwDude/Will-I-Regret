@@ -78,8 +78,7 @@ class LiveRealmCollection<T : RealmModel>(private var realmCollection: OrderedRe
 	fun sort(field1: KProperty<*>, sortOrder1: Sort, field2: KProperty<*>, sortOrder2: Sort) =
 		sort(field1.name, sortOrder1, field2.name, sortOrder2)
 
-	@Suppress("USELESS_CAST")
-	fun sort(fields: Array<KProperty<*>>, sortOrders: Array<Sort?>) = sort(fields.map { it.name as String? }.toTypedArray(), sortOrders)
+	fun sort(fields: Array<KProperty<*>>, sortOrders: Array<Sort?>) = sort(fields.map { it.name }.toTypedArray(), sortOrders)
 
 	fun setValue(newRealmCollection: OrderedRealmCollection<T>) {
 		newRealmCollection.addListener(listener)

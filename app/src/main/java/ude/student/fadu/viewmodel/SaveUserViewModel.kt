@@ -10,7 +10,7 @@ class SaveUserViewModel : AViewModel() {
 	val shrink = MutableLiveData(false)
 	val userName = MutableLiveData("")
 	val errorText = MutableLiveData(R.string.no_text)
-	override val onKeyboardShown: ((Boolean) -> Unit)? = { visible ->
+	override val onKeyboardShown: ((Boolean) -> Unit) = { visible ->
 		shrink.value = visible
 	}
 

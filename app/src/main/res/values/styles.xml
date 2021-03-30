@@ -4,13 +4,13 @@
 
 	<style name="Theme.App" parent="Theme.MaterialComponents.NoActionBar">
 		<item name="android:navigationBarColor">@android:color/transparent</item>
+		<item name="android:statusBarColor">@android:color/transparent</item>
 		<item name="android:windowDrawsSystemBarBackgrounds">true</item>
-		<item name="android:background">@color/colorBackground</item>
+		<item name="android:background">@android:color/transparent</item>
 		<item name="android:elevation">0dp</item>
 
 		<item name="colorPrimary">@color/colorPrimary</item>
 		<item name="colorAccent">@color/colorAccent</item>
-
 		<item name="android:textSize">@dimen/text_size_m</item>
 		<item name="android:textColor">@color/colorText</item>
 	</style>
@@ -19,11 +19,12 @@
 
 	<style name="Item">
 		<item name="android:layout_margin">@dimen/space_xs</item>
-		<item name="cardBackgroundColor">@color/colorPrimaryTransparent</item>
+		<item name="cardBackgroundColor">@color/colorPrimaryDark</item>
 		<item name="cardCornerRadius">@dimen/corner_radius</item>
 	</style>
 
 	<style name="Headline">
+		<item name="android:gravity">center</item>
 		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">@dimen/text_size_xl</item>
 	</style>
@@ -39,6 +40,7 @@
 	</style>
 
 	<style name="Button">
+		<item name="android:textSize">@dimen/text_size_l</item>
 		<item name="android:textColor">@color/colorTextDark</item>
 		<item name="android:background">@drawable/button_background</item>
 	</style>
@@ -55,6 +57,13 @@
 		<item name="tint">@color/colorTextDark</item>
 		<item name="android:backgroundTint">@color/colorAccent</item>
 		<item name="borderWidth">0dp</item>
+	</style>
+
+	<style name="Slider">
+		<item name="labelBehavior">gone</item>
+		<item name="tickColor">@color/colorPrimary</item>
+		<item name="trackColor">@color/colorPrimaryDark</item>
+		<item name="trackHeight">@dimen/space_s</item>
 	</style>
 
 </resources>

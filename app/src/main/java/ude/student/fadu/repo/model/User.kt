@@ -1,9 +1,8 @@
 package ude.student.fadu.repo.model
 
 import io.realm.RealmObject
-import io.realm.annotations.PrimaryKey
 
-open class User(@PrimaryKey var name: String = "",
+open class User(var name: String = "",
 				var genderLvl: Int = 0,
 				var ageLvl: Int = 0,
 				var educationLvl: Int = 0,
@@ -36,8 +35,8 @@ open class User(@PrimaryKey var name: String = "",
 
 	override fun toString() = if (isValid) name else "INVALID"
 
-	enum class Gender {
-		MALE, DIVERS, FEMALE
+	enum class Gender(val abbreviation: String) {
+		MALE("m"), DIVERS("t"), FEMALE("w")
 	}
 
 	enum class Age {

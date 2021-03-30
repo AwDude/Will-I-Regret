@@ -1,27 +1,27 @@
 package ude.student.fadu.viewmodel
 
-import io.realm.Realm
-import io.realm.kotlin.where
 import ude.student.fadu.repo.DataBase
 import ude.student.fadu.repo.model.User
+import ude.student.fadu.view.fragment.SelectUserFragmentDirections
 
 class SelectUserViewModel : AViewModel() {
 
-	val users = DataBase.getAllUsers()
+	val users = DataBase.getNamedUsers()
 
 	fun onUserSelected(user: User) {
-		showToast(user.name)
+		navigate(SelectUserFragmentDirections.actionShowTopic(user.name))
 	}
 
 	fun onNewUserClicked() {
-		val realm = Realm.getDefaultInstance()
-		val count = realm.where<User>().count()
-		val user = User("User #$count")
-		realm.executeTransaction {
-			it.insertOrUpdate(user)
+		if (users.isEmpty()) {
+			navigate(SelectUserFragmentDirections.actionShowGenderClearBackStack())
+		} else {
+			navigate(SelectUserFragmentDirections.actionShowGender())
 		}
 	}
 
-	fun onDeleteUser(user: User) = DataBase.deleteUser(user)
+	fun onDeleteUser(user: User) {
+		DataBase.deleteUser(user)
+	}
 
 }

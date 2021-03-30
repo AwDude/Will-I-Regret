@@ -13,16 +13,15 @@
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:paddingHorizontal="@dimen/space_m"
-		android:paddingBottom="@dimen/nav_bar_height"
-		tools:context=".ui.fragment.MenuFragment">
+		android:paddingHorizontal="@dimen/space_l"
+		android:paddingBottom="@dimen/space_l"
+		android:paddingTop="@dimen/space_xl">
 
 		<TextView
 			android:id="@+id/label_us"
 			style="@style/Headline"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="@dimen/space_xxl"
 			android:text="@string/label_us"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +37,9 @@
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintEnd_toStartOf="@id/no_btn"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/label_us" />
+			app:layout_constraintTop_toBottomOf="@+id/label_us"
+			app:layout_constraintVertical_bias="0.7"
+			tools:ignore="ContentDescription" />
 
 		<ImageButton
 			android:id="@+id/no_btn"
@@ -50,7 +51,9 @@
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toEndOf="@id/yes_btn"
-			app:layout_constraintTop_toBottomOf="@+id/label_us" />
+			app:layout_constraintTop_toBottomOf="@+id/label_us"
+			app:layout_constraintVertical_bias="0.7"
+			tools:ignore="ContentDescription" />
 
 	</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,18 +1,17 @@
 package ude.student.fadu.viewmodel
 
 import ude.student.fadu.repo.DataBase
+import ude.student.fadu.view.fragment.UsFragmentDirections
 
 class UsViewModel : AViewModel() {
 
 	fun onYesClick() {
 		DataBase.setFromUS(true)
-		val u = DataBase.getUser()
-		showToast("${u.gender} ${u.age} ${u.education} ${u.occupation} ${u.fromUS}")
+		navigate(UsFragmentDirections.actionShowSaveUser())
 	}
 
 	fun onNoClick() {
 		DataBase.setFromUS(false)
-		val u = DataBase.getUser()
-		showToast("${u.gender} ${u.age} ${u.education} ${u.occupation} ${u.fromUS}")
+		navigate(UsFragmentDirections.actionShowSaveUser())
 	}
 }

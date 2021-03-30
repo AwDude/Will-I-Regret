@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+	>
+
+	<data>
+
+		<variable
+			name="vm"
+			type="ude.student.fadu.viewmodel.RegretViewModel" />
+	</data>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:paddingHorizontal="@dimen/space_l"
+		android:paddingTop="@dimen/space_xl"
+		android:paddingBottom="@dimen/space_l">
+
+		<TextView
+			android:id="@+id/label_regret"
+			style="@style/Headline"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/label_regret"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<ImageView
+			android:id="@+id/regret_thumb"
+			android:layout_width="@dimen/space_xxl"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/space_l"
+			android:adjustViewBounds="true"
+			android:rotation="350"
+			android:scaleType="centerInside"
+			android:src="@drawable/image_thumb"
+			app:animate="@{vm.animation}"
+			app:layout_constraintBottom_toTopOf="@id/regret_text"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/label_regret"
+			app:layout_constraintVertical_chainStyle="packed"
+			tools:ignore="ContentDescription" />
+
+		<TextView
+			android:id="@+id/regret_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/space_xxl"
+			android:text="@{vm.text}"
+			android:textSize="@dimen/text_size_l"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/regret_thumb"
+			app:textColor="@{vm.textColor}"
+			tools:text="@string/label_regret_not" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -15,14 +15,13 @@ import ude.student.fadu.repo.DataBase
 import ude.student.fadu.repo.model.Topic
 import ude.student.fadu.repo.model.User
 import weka.classifiers.Classifier
-import weka.classifiers.Evaluation
 import weka.core.DenseInstance
 import weka.core.Instances
 import java.io.ObjectInputStream
 import java.util.*
 
 const val CLASSIFIER_FILE = "c45.model"
-const val EVALUATION_FILE = "evaluation.model"
+const val HEADER_FILE = "dataset.header"
 
 class RegretViewModel : AViewModel() {
 
@@ -31,18 +30,18 @@ class RegretViewModel : AViewModel() {
 	val textColor = MutableLiveData(R.color.colorNo)
 
 	private var classifier: Classifier? = null
-	private var evaluation: Evaluation? = null
+	private var header: Instances? = null
 
 	private var classifierJob: Job? = null
-	private var evaluationJob: Job? = null
+	private var headerJob: Job? = null
 
 	fun loadData(userName: String, topic: Topic, assets: AssetManager) = viewModelScope.launch {
 		loadClassifier(assets)
-		loadEvaluation(assets)
+		loadHeader(assets)
 		val user = DataBase.getUser(userName)
 		try {
 			classifierJob?.join()
-			evaluationJob?.join()
+			headerJob?.join()
 		} catch (e: CancellationException) {
 			// viewmodel was probably destroyed while loading
 		}
@@ -52,20 +51,19 @@ class RegretViewModel : AViewModel() {
 	}
 
 	private fun evaluate(user: User, topic: Topic) = classifier?.let { cl ->
-		val ev = evaluation ?: return@let
+		val head = header ?: return@let
+		if (head.numAttributes() < 7) return@let
+
 		val instance = DenseInstance(7).apply {
-			setValue(ev.header.attribute(0), if (user.fromUS) "yes" else "no")
-			setValue(ev.header.attribute(1), user.gender.abbreviation)
-			setValue(ev.header.attribute(2), 20.0 + (10 * user.ageLvl)) // TODO fix age data model or user input
-			setValue(ev.header.attribute(3), user.education.name.toLowerCase(Locale.ENGLISH))
-			setValue(ev.header.attribute(4), user.occupation.name.toLowerCase(Locale.ENGLISH))
-			setValue(ev.header.attribute(5), topic.name.toLowerCase(Locale.ENGLISH))
+			setValue(head.attribute(0), if (user.fromUS) "yes" else "no")
+			setValue(head.attribute(1), user.gender.abbreviation)
+			setValue(head.attribute(2), 20.0 + (10 * user.ageLvl)) // TODO fix age data model or user input
+			setValue(head.attribute(3), user.education.name.toLowerCase(Locale.ENGLISH))
+			setValue(head.attribute(4), user.occupation.name.toLowerCase(Locale.ENGLISH))
+			setValue(head.attribute(5), topic.name.toLowerCase(Locale.ENGLISH))
+			setDataset(head)
 		}
-		val instances = Instances(ev.header).apply {
-			add(instance)
-			setClassIndex(numAttributes() - 1)
-		}
-		val prediction = ev.evaluateModelOnce(cl, instances.firstInstance())
+		val prediction = cl.classifyInstance(instance)
 		showPrediction(prediction == 0.0) // regret estimation: 0.0 = high, 1.0 = low
 	}
 
@@ -98,12 +96,12 @@ class RegretViewModel : AViewModel() {
 		}
 	}
 
-	private fun loadEvaluation(assets: AssetManager) {
-		if (evaluationJob?.isActive == true || evaluation != null) return
-		evaluationJob = viewModelScope.launch(Dispatchers.IO) {
-			val obj = ObjectInputStream(assets.open(EVALUATION_FILE)).use { it.readObject() }
-			if (obj is Evaluation) {
-				evaluation = obj
+	private fun loadHeader(assets: AssetManager) {
+		if (headerJob?.isActive == true || header != null) return
+		headerJob = viewModelScope.launch(Dispatchers.IO) {
+			val obj = ObjectInputStream(assets.open(HEADER_FILE)).use { it.readObject() }
+			if (obj is Instances) {
+				header = obj
 			} else {
 				Log.e("loadEvaluation", "corrupted file")
 			}

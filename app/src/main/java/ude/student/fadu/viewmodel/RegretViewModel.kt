@@ -2,6 +2,7 @@ package ude.student.fadu.viewmodel
 
 import android.content.res.AssetManager
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.core.os.postDelayed
 import androidx.lifecycle.MutableLiveData
@@ -20,7 +21,7 @@ import weka.core.Instances
 import java.io.ObjectInputStream
 import java.util.*
 
-const val CLASSIFIER_FILE = "c45.model"
+const val CLASSIFIER_FILE = "naiveBayes.model"
 const val HEADER_FILE = "dataset.header"
 
 class RegretViewModel : AViewModel() {
@@ -58,9 +59,9 @@ class RegretViewModel : AViewModel() {
 			setValue(head.attribute(0), if (user.fromUS) "yes" else "no")
 			setValue(head.attribute(1), user.gender.abbreviation)
 			setValue(head.attribute(2), 20.0 + (10 * user.ageLvl)) // TODO fix age data model or user input
-			setValue(head.attribute(3), user.education.name.toLowerCase(Locale.ENGLISH))
-			setValue(head.attribute(4), user.occupation.name.toLowerCase(Locale.ENGLISH))
-			setValue(head.attribute(5), topic.name.toLowerCase(Locale.ENGLISH))
+			setValue(head.attribute(3), user.education.name.lowercase(Locale.ENGLISH))
+			setValue(head.attribute(4), user.occupation.name.lowercase(Locale.ENGLISH))
+			setValue(head.attribute(5), topic.name.lowercase(Locale.ENGLISH))
 			setDataset(head)
 		}
 		val prediction = cl.classifyInstance(instance)
@@ -75,7 +76,7 @@ class RegretViewModel : AViewModel() {
 			textColor.value = R.color.colorYes
 			R.anim.rotate_up
 		}
-		Handler().postDelayed(1500) {
+		Handler(Looper.getMainLooper()).postDelayed(1500) {
 			text.value = if (willRegret) {
 				R.string.label_regret_yes
 			} else {
